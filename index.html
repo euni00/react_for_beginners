@@ -1,0 +1,38 @@
+<!--ReactJS가 얼마나 편한지 비교하기 위한 JavaScript 코드입니다.-->
+<!-- 1. HTML을 작성합니다. -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <span>Total clicks: 0</span>
+        <button id = "btn">Click me</button>
+    </body>
+
+    <script>
+        
+        let counter = 0;
+
+        // 2. JavaScript로 button을 가져옵니다.
+        // getElementById : tag 안의 ID값을 이용해서 Object에 접근할 수 있습니다.
+        const button = document.getElementById("btn");
+
+        // html에서 span을 가져오면 counter 변수를 저장하고 웹 화면에 출력할 수 있습니다.
+        // querySelector : name, id, class를 제한하지 않고 css 선택자를 사용하여 요소를 찾습니다.
+        const span = document.querySelector("span");
+
+        // 3. click 했을 때 어떤 동작을 할 지 작성합니다.
+        function handleClick() {
+            console.log("I have been clicked!");
+
+            // * 웹 페이지 console에서 counter를 입력하면 클릭한 갯수가 출력됩니다. (counter -> 7)
+            counter += 1;
+
+            // innerTest : element 안의 text 값만 가져옵니다.
+            span.innerText = `Total clicks: ${counter}`;
+        }
+
+        // 4. button.addEventListner를 호출하고 click event를 감지합니다.
+        // addEventListener : document의 id, class, tag를 event로 등록합니다.
+        button.addEventListener("click", handleClick);
+
+    </script>
+</html>
