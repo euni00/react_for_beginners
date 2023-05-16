@@ -1,24 +1,40 @@
-<!--JavaScript보다 편리한 ReactJS 코드입니다.-->
+<!--개발자들이 쓰지 않는 어렵고 복잡한 ReactJS 코드입니다.-->
 <!-- 1. HTML을 작성합니다. -->
 <!DOCTYPE html>
 <html>
-    <body>
-       
-    </body>
-    <!-- React를 import 합니다. -->
-    <script src = "https://unpkg.com/react@17.0.2/umd/react.production.min.js">
-        // React
-    </script>  
-    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js">
-        // ReactDOM
-    </script>  
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- React를 import 합니다. -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js">
+    // ReactJS : 어플리케이션이 interactive 하도록 만들어주는 libary입니다.
+  </script>
+  <script
+    src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"
+  >
+    // ReactDOM : React element를 HTML body에 둘 수 있게 해줍니다.
+  </script>
 
-    <script>
-        // 이제 React를 사용할 수 있습니다!
-        // ReactJS는 HTML 대신 JavaScript와 ReactJS를 이용하여 element를 생성합니다.
+  <script>
+    // 이제 React를 사용할 수 있습니다!
+    // * ReactJS의 핵심
+    // ReactJS는 HTML 대신 JavaScript와 ReactJS를 이용하여 element를 생성합니다.
+    // ReactJS는 업데이트가 필요한 element를 업데이트 할 수 있습니다.
+    // 따라서, ReactJS가 결과물인 HTML을 업데이트할 수 있고 유저에게 보여질 내용을 컨트롤할 수 있습니다.
 
-        // * 어려운 방식 -> 개발자들이 작업하는 방식 x
-        const span = React.createElement("span")  // ("span") -> 생성하고자 하는 HTML 태그와 똑같은 이름이어야 합니다.
+    const root = document.getElementById("root");
 
-    </script>
+    // ReactJS가 HTML로 번역합니다.
+    // ReactJS는 javascript로 시작해서 HTML로 끝나는 코드입니다.
+    // (생성하고자 하는 HTML 태그, {span의 property -> ex) className, id}, span의 content)
+    const span = React.createElement(
+      "span",
+      { id: "sexy-span", style: { color: "red" } },
+      "Hello I'm a span"
+    );
+
+    // render() -> React element를 가지고 HTML로 만들어 배치합니다.
+    // span을 root안에 render 해줍니다.
+    ReactDOM.render(span, root);
+  </script>
 </html>
