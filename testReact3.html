@@ -1,4 +1,5 @@
-<!-- testReact2보다 더 간단하게 작성할 수 있는 ReactJS 코드입니다:) -->
+<!-- ReactJS에서는 createElement를 쓰지 않습니다.-->
+<!-- createElement를 대체할 수 있는 JSX를 사용한 ReactJS 코드입니다:) -->
 <!DOCTYPE html>
 <html>
   <body>
@@ -7,20 +8,43 @@
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js">
   </script>
   <script
-    src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"
-  >
+    src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js">
   </script>
 
-  <script>
-
+  <script type = "text/babel">
+    // JSX는 JavaScript를 확장한 문법입니다. HTML과 비슷합니다.
+    // Babel를 사용해서 브라우저에서 JSX를 이해할 수 있도록 코드를 변환해야 합니다.
     const root = document.getElementById("root");
 
-    const span = React.createElement(
-      "span",
-      { id: "sexy-span", style: { color: "red" } },
-      "Hello I'm a span"
+    // 1. Title 생성하기
+    // tag(태그) 열기, content(내용) 담기, props(속성) 추가하기 
+    // Arrow Function : () => 를 추가하면 Title 변수가 function이 됩니다.
+    const Title = () => (
+        <h3 id = "title" onMouseEnter={() => console.log("mouse enter")}>
+            hello I'm a title
+        </h3>
     );
-    
-    ReactDOM.render(span, root);
+
+    // 2. Button 생성하기
+    const Button = () => (
+        <button 
+            style = {{
+                backgroundColor: "tomato", 
+            }} onClick = {() => console.log("I'm Clicked")}
+            >
+            Click me
+        </button>
+    );
+
+    // div tag : division, 웹사이트의 레이아웃을 만들 때 사용합니다.
+    // 블록을 배치하고 css를 통해 스타일을 선택할 수 있습니다.
+    // Title, Button과 같은 컴포넌트는 대문자여야 합니다. 소문자는 태그로 인식합니다.
+    const Container = () => (
+        <div>
+            <Title /> 
+            <Button />
+        </div>
+        );
+    ReactDOM.render(<Container />, root);
   </script>
 </html>
