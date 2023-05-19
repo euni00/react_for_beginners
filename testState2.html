@@ -1,0 +1,41 @@
+<!-- 값이 바뀌는 데이터를 state에 담을 수 있습니다 -->
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js">
+  </script>
+  <script
+    src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js">
+  </script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type = "text/babel">
+    // * JavaScript 문법
+    // const food = ["tomato", "potato"];
+    // const [myFavFood, mySecondFavFood] = food;
+    // myFavFood -> "tomato"
+    // mySecondFavFood -> "potato"
+    // 초기 컴포넌트가 초기 데이터를 가지고 렌더링되고 버튼을 클릭하면 리렌더링 (rendering)하는 코드입니다. (좋은 방법)
+
+    const root = document.getElementById("root");
+    
+    // * State : 컴포넌트가 가질 수 있는 상태이다.
+    // const App= () => ( ... ); -> 함수 안에 변수 선언이 불가하다.
+    function App() {
+        // React Elements
+        const [counter, modifier] = React.useState(0);
+        // const counter = data[0];
+        // const modifier = data[1];
+        // console.log(data);
+        return (
+        <div>
+            <h3>Total clicks: {counter}</h3>
+            <button>Click me</button>
+        </div>
+        );
+    }
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
