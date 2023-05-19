@@ -25,14 +25,18 @@
     // const App= () => ( ... ); -> 함수 안에 변수 선언이 불가하다.
     function App() {
         // React Elements
-        const [counter, modifier] = React.useState(0);
-        // const counter = data[0];
-        // const modifier = data[1];
-        // console.log(data);
+        const [counter, setCounter] = React.useState(0);
+        const onClick = () => {
+            // counter = counter + 1;
+            // state가 변경되면 modifier 함수는 그 값으로 업데이트하고 리렌더링을 합니다. -> 컴포넌트 재생성 (refresh)
+            // modifier는 일반적으로 set 뒤에 데이터이름을 붙입니다.
+            setCounter(counter + 1);
+            // ReactDOM.render(<App />, root);
+        };
         return (
         <div>
             <h3>Total clicks: {counter}</h3>
-            <button>Click me</button>
+            <button onClick = {onClick}>Click me</button>
         </div>
         );
     }
